@@ -24,3 +24,12 @@ export const getComics = async (offset = 0) => {
   });
   return response.data;
 };
+
+export const getComicById = (id) =>
+  api.get(`/comics/${id}`, {
+    params: { 
+      ts: TS,
+      apikey: KEY1,
+      hash: HASH,
+    },  
+  }).then(response => response.data);
