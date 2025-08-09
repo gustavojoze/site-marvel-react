@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getComicById } from '../services/apiMarvel';
+import { useParams } from 'react-router-dom';
 
 const DivContainer = styled.div`
   display: flex;
@@ -12,9 +13,10 @@ const DivContainer = styled.div`
 
 const HqDetails = () => {
   const [hq, setHq] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    getComicById(5813).then(comic => {
+    getComicById(id).then(comic => {
       setHq(comic.data.results[0]);
       console.log(comic.data.results[0]);
     });

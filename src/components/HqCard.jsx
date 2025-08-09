@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import  {Link}  from 'react-router-dom';
 
 const Card = styled.div`
   display: flex;
@@ -59,7 +60,7 @@ const Title = styled.h4`
 `;
 
 const HqCard = ({hq}) => (
-  console.log(hq.thumbnail.path),
+  <Link to={`/hq/${hq.id}`}>
   <Card>
     <ImgWrapper>
         <StyledImg src={`${hq.thumbnail.path}.${hq.thumbnail.extension}`} alt={hq.title} />
@@ -67,6 +68,7 @@ const HqCard = ({hq}) => (
     <Title>{hq.title}</Title>
    <Cicle />
   </Card>
+  </Link>
 );
 
 export default HqCard;
