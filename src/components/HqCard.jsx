@@ -10,9 +10,9 @@ const Card = styled.div`
   text-align: center;
   position: relative;
   width: 200px;
-  height: 100%;
   text-decoration: none;
   transition: transform 0.2s;
+
 
   &:hover {
     &:hover img {
@@ -52,6 +52,10 @@ const Title = styled.h4`
   font-weight: 500;
   font-family: 'Arial', sans-serif;
   margin-top: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* quantidade de linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 const HqCard = ({hq}) => (
