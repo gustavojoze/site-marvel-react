@@ -54,12 +54,13 @@ const Title = styled.h4`
   margin-top: 10px;
 `;
 
-const HqCard = () => (
-  <Card >
+const HqCard = ({hq}) => (
+  console.log(hq.thumbnail.path),
+  <Card>
     <ImgWrapper>
-      <StyledImg src="/logo_marvel.png" alt=" " />
+        <StyledImg src={`${hq.thumbnail.path}.${hq.thumbnail.extension}`} alt={hq.title} />
     </ImgWrapper>
-    <Title>dfsf</Title>
+    <Title>{hq.title}</Title>
    <Cicle />
   </Card>
 );
