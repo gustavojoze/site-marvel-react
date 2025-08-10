@@ -1,6 +1,9 @@
 // src/components/Navbar.jsx
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toggleCart } from '../redux/cartSlice';
+import Cart from './Cart';
 
 const Nav = styled.nav`
     display: flex;
@@ -17,7 +20,7 @@ const Logo = styled.img`
     height: 40px;
     `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -26,13 +29,20 @@ const StyledLink = styled.a`
     }
     `;
 
-const Navbar = () => (
+const Navbar = () =>{ 
+    const dispatch = useDispatch();
+
+    return(
+    <>   
     <Nav>
         <Link to="/">
-        <Logo src="/logo_marvel.png" alt="Marvel Logo" />
-        </Link>        
-        <StyledLink>Carrinho</StyledLink>
+            <Logo src="/logo_marvel.png" alt="Marvel Logo" />
+        </Link>
+        <button onClick={() =>  dispatch(toggleCart())}>Carrinho</button>
     </Nav>
+    <Cart/>
+    </>
 );
+}
 
 export default Navbar;
