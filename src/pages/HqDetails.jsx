@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getComicById } from '../services/apiMarvel';
 import { useParams } from 'react-router-dom';
+import Loding from '../components/Loading';
 
 const DivContainer = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const HqDetails = () => {
   }, []);
 
   if (!hq) {
-    return <div>Carregando...</div>;
+    return <Loding/>
   }
 
   return (
