@@ -16,6 +16,7 @@ export const Card = styled.div`
   text-align: center;
   position: relative;
   width: 200px;
+  height: 100%;
   transition: transform 0.2s;
   color: #ece4e4ff;
 
