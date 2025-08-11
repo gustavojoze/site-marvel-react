@@ -1,0 +1,54 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { toggleCart } from '../../redux/cartSlice';
+import Cart from '../Cart';
+import { selectProductsCount } from '../../redux/cart.select';
+
+import {
+  HeaderContainer,
+  Logo,
+  ContainerCartIcon,
+  CartIcon,
+  IconCount,
+} from './style';
+
+const Header = () => {
+  const dispatch = useDispatch();
+  const productsCount = useSelector(selectProductsCount);
+
+  return (
+    <>
+      <HeaderContainer>
+        <Link to="/">
+          <Logo src="/logo_marvel.png" alt="Marvel Logo" />
+        </Link>
+        <ContainerCartIcon onClick={() => dispatch(toggleCart())}>
+          <CartIcon
+            data-slot="icon"
+            fill="none"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993
+                 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125
+                 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576
+                 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0
+                 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0
+                 .375.375 0 0 1 .75 0Z"
+            />
+          </CartIcon>
+          <IconCount>{productsCount}</IconCount>
+        </ContainerCartIcon>
+      </HeaderContainer>
+      <Cart />
+    </>
+  );
+};
+
+export default Header;

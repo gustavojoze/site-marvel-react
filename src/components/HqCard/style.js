@@ -1,7 +1,12 @@
 import styled from 'styled-components';
-import  {Link}  from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Card = styled.div`
+export const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,34 +16,29 @@ const Card = styled.div`
   text-align: center;
   position: relative;
   width: 200px;
-  text-decoration: none;
   transition: transform 0.2s;
+  color: #ece4e4ff;
 
-
-  &:hover {
-    &:hover img {
+  &:hover img {
     transform: scale(1.1);
   }
-  }
-
- 
 `;
 
-const ImgWrapper = styled.div`
+export const ImgWrapper = styled.div`
   width: 100%;
   height: 300px;
   overflow: hidden;
   border-radius: 8px;
 `;
 
-const StyledImg = styled.img`
+export const StyledImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 `;
 
-const Cicle = styled.div`
+export const Cicle = styled.div`
   width: 20px;  
   height: 20px;
   border-radius: 50%;
@@ -48,7 +48,7 @@ const Cicle = styled.div`
   right: 5px;
 `;
 
-const Title = styled.h4`
+export const Title = styled.h4`
   color: #ece4e4ff;
   font-weight: 500;
   font-family: 'Arial', sans-serif;
@@ -59,16 +59,6 @@ const Title = styled.h4`
   overflow: hidden;
 `;
 
-const HqCard = ({hq}) => (
-  <Link to={`/hq/${hq.id}`}>
-  <Card>
-    <ImgWrapper>
-        <StyledImg src={`${hq.thumbnail.path}.${hq.thumbnail.extension}`} alt={hq.title} />
-    </ImgWrapper>
-    <Title>{hq.title}</Title>
-   <Cicle />
-  </Card>
-  </Link>
-);
-
-export default HqCard;
+export const Price = styled.p`
+  font-size: 14px;
+`;

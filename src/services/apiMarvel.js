@@ -16,20 +16,31 @@ const api = axios.create({
 });
 
 export const getComics = async (offset = 0) => {
-  const response = await api.get("/comics", {
-    params: {
-      offset,
-      limit: 20,
-    },
-  });
-  return response.data;
-};
+  const response = await api.get("/comics");
 
-export const getComicById = (id) =>
-  api.get(`/comics/${id}`, {
+  const comics = response.data.data.results.map((comic) => ({
+    ...comic,
+    isRare: Math.random() < 0.1,
+    price: comic.prices?.[0]?.price || Number((Math.random() * 50 + 10).toFixed(2))  
+  }));
+
+  return comics;
+}
+
+export const getComicById = async (id) => {
+  const response = await api.get(`/comics/${id}`, {
     params: { 
       ts: TS,
       apikey: KEY1,
       hash: HASH,
     },  
-  }).then(response => response.data);
+  });
+
+  const comic = response.data.data.results[0];
+
+  return {
+    ...comic,
+    isRare: Math.random() < 0.1,
+    price: comic.prices?.[0]?.price || Number((Math.random() * 50 + 10).toFixed(2))
+  };
+};
