@@ -1,5 +1,7 @@
 
 # Loja Marvel de Gibis / Comics 🛒
+## 🕷️ Venha fazer parte desse universo ou melhor, multiverso:
+https://site-marvel-react.vercel.app/
 
 ## 📋 Descrição
 
