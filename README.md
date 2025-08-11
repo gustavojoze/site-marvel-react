@@ -5,7 +5,7 @@ https://site-marvel-react.vercel.app/
 
 ## 📋 Descrição
 
-Bem-vindo à loja sua loja **gibis Marvel**!  
+Bem-vindo à sua loja **gibis Marvel**!  
 Este projeto é um site de compras desenvolvido em **React**, com gerenciamento global via **Redux** e estilos feitos com **styled-components**. Você pode adicionar seus quadrinhos ao carrinho.
 
 ---
