@@ -43,7 +43,7 @@ const Header = () => {
                  .375.375 0 0 1 .75 0Z"
             />
           </CartIcon>
-          <IconCount>{productsCount}</IconCount>
+          {productsCount>0?<IconCount>{productsCount}</IconCount>: null}
         </ContainerCartIcon>
       </HeaderContainer>
       <Cart />
